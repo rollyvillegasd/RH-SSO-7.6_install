@@ -138,6 +138,7 @@ vim /opt/rh-sso-7.6/standalone/configuration/standalone.xml
     <inet-address value="${jboss.bind.address.management:0.0.0.0}"/>
 </interface>
 ```
+Enter your username and password to log in to the Management Console
 ```sh
 Open your browser and go to http://<your-ip>:9990/ to try it out.
 ```
