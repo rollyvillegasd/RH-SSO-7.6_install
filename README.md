@@ -139,7 +139,7 @@ vim /opt/rh-sso-7.6/standalone/configuration/standalone.xml
 </interface>
 ```
 
-Open your browser and go to http://<prometheus-ip>:9990/ to try it out.
+Open your browser and go to http://<your-ip>:9990/ to try it out.
 
 <img title="RH-SSO" alt="Alt text" src="files/rh-sso-console.JPG">
 
@@ -149,7 +149,7 @@ cd /opt/rh-sso-7.6/bin
  ./add-user-keycloak.sh -r master -u usuario -p password
 ```
 
-Open your browser and go to http://<prometheus-ip>:8080/auth/ to try it out.
+Open your browser and go to http://<your-ip>:8080/auth/ to try it out.
 
 <img title="RH-SSO" alt="Alt text" src="files/rh-sso-admin.JPG">
 
