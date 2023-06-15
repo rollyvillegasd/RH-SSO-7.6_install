@@ -89,10 +89,59 @@ firewall-cmd --zone=public --permanent --list-ports
 
 ### Step 07) Validate service
 ```sh
-Open your browser and go to http://localhost:8080/auth to try it out.
+Open your browser and go to http://<prometheus-ip>:8080/auth to try it out.
 ```
 
 <img title="RH-SSO" alt="Alt text" src="files/rh-sso.JPG">
+
+### Step 08) Admin Console
+```sh
+cd /opt/rh-sso-7.6/bin
+sh add-user.sh
+```
+```text
+What type of user do you wish to add?
+ a) Management User (mgmt-users.properties)
+ b) Application User (application-users.properties)
+(a):
+
+Enter the details of the new user to add.
+Using realm 'ManagementRealm' as discovered from the existing property files.
+Username : admsso
+Password recommendations are listed below. To modify these restrictions edit the add-user.properties configuration file.
+ - The password should be different from the username
+ - The password should not be one of the following restricted values {root, admin, administrator}
+ - The password should contain at least 8 characters, 1 alphabetic character(s), 1 digit(s), 1 non-alphanumeric symbol(s)
+Password :
+WFLYDM0102: Password should have at least 1 non-alphanumeric symbol.
+Are you sure you want to use the password entered yes/no? yes
+Re-enter Password :
+What groups do you want this user to belong to? (Please enter a comma separated list, or leave blank for none)[  ]:
+About to add user 'admsso' for realm 'ManagementRealm'
+Is this correct yes/no? yes
+Added user 'admsso' to file '/opt/rh-sso-7.6/standalone/configuration/mgmt-users.properties'
+Added user 'admsso' to file '/opt/rh-sso-7.6/domain/configuration/mgmt-users.properties'
+Added user 'admsso' with groups  to file '/opt/rh-sso-7.6/standalone/configuration/mgmt-groups.properties'
+Added user 'admsso' with groups  to file '/opt/rh-sso-7.6/domain/configuration/mgmt-groups.properties'
+Is this new user going to be used for one AS process to connect to another AS process?
+e.g. for a slave host controller connecting to the master or for a Remoting connection for server to server Jakarta Enterprise Beans calls.
+yes/no? yes
+To represent the user add the following to the server-identities definition <secret value="NGRtMW5TUzA=" />
+
+```
+Edit file configuration
+```sh
+vim /opt/rh-sso-7.6/standalone/configuration/standalone.xml
+```txt
+<interface name="management">
+    <inet-address value="${jboss.bind.address.management:0.0.0.0}"/>
+</interface>
+```
+
+Open your browser and go to http://<prometheus-ip>:9990/ to try it out.
+
+<img title="RH-SSO" alt="Alt text" src="files/rh-sso-console.JPG">
+
 
 ## By
 
