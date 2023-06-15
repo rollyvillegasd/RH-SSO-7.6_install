@@ -132,6 +132,7 @@ To represent the user add the following to the server-identities definition <sec
 Edit file configuration
 ```sh
 vim /opt/rh-sso-7.6/standalone/configuration/standalone.xml
+```
 ```txt
 <interface name="management">
     <inet-address value="${jboss.bind.address.management:0.0.0.0}"/>
@@ -142,6 +143,15 @@ Open your browser and go to http://<prometheus-ip>:9990/ to try it out.
 
 <img title="RH-SSO" alt="Alt text" src="files/rh-sso-console.JPG">
 
+### Step 09) Administration Console RH-SSO
+cd /opt/rh-sso-7.6/bin
+```sh
+ ./add-user-keycloak.sh -r master -u usuario -p password
+```
+
+Open your browser and go to http://<prometheus-ip>:8080/auth/ to try it out.
+
+<img title="RH-SSO" alt="Alt text" src="files/rh-sso-admin.JPG">
 
 ## By
 
